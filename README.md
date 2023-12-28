@@ -1,3 +1,7 @@
+<p align="center"><img src='https://github.com/luciano44/react-query-course/assets/42896706/09242d1a-8f16-4229-a58e-334346ec4161' height=100></p>
+<br>
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
