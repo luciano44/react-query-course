@@ -1,10 +1,21 @@
 .joke-card {
   padding: 25px;
-  margin: 25px auto;
-  width: fit-content;
-  background-color: rgba(255, 255, 255, 0.1);
+  margin: 0 auto 10px;
+  width: 100%;
+  background-color: hsla(0, 0%, 100%, 0.1);
 }
 
 small {
   opacity: 0.5;
+}
+
+.punchline {
+  color: lightgreen;
+}
+
+.error-msg {
+  background-color: rgba(255, 0, 0, 0.6);
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.8);
 }

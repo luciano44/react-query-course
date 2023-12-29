@@ -1,12 +1,18 @@
-import "./_css/page.scss";
-const jokesURL = "https://official-joke-api.appspot.com/random_joke";
+import RQJokeCard from "@/components/RQJokeCard";
 
 const RQJokes = () => {
   return (
-    <div className="joke-card">
-      <small>{"{joke.type}"}</small>
-      <p>{"{joke.setup}"}</p>
-      <p>{"{joke.punchline}"}</p>
+    <div
+      style={{
+        width: "400px",
+        margin: "25px auto",
+        display: "flex",
+        flexDirection: "column",
+        gap: "5px",
+        placeItems: "center",
+      }}
+    >
+      <RQJokeCard />
     </div>
   );
 };
