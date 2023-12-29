@@ -18,4 +18,5 @@ const JokeCard = async () => {
     </div>
   );
 };
+
 export default JokeCard;

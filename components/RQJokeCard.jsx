@@ -10,12 +10,14 @@ function fetchJoke() {
 }
 
 const RQJokeCard = () => {
-  const { isError, error, isPending, data, isFetching } = useQuery({
+  const { isError, error, isLoading, data, isFetching } = useQuery({
     queryKey: ["joke"],
     queryFn: () => fetchJoke(),
+    refetchOnWindowFocus: false,
+    refetchOnMount: false,
   });
 
-  if (isPending) return <h1>Pending...</h1>;
+  if (isLoading) return <h1>Loading...</h1>;
   if (isError) return <h1 className="error-msg">{error.message}</h1>;
 
   return (

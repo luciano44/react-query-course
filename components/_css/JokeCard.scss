@@ -3,6 +3,7 @@
   margin: 0 auto 10px;
   width: 100%;
   background-color: hsla(0, 0%, 100%, 0.1);
+  animation: showUp 0.25s;
 }
 
 small {
@@ -18,4 +19,13 @@ small {
   padding: 5px 10px;
   border-radius: 5px;
   color: rgba(255, 255, 255, 0.8);
+}
+
+@keyframes showUp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
