@@ -15,6 +15,8 @@ const RQJokeCard = () => {
     queryFn: () => fetchJoke(),
     refetchOnWindowFocus: false,
     refetchOnMount: false,
+    // refetchInterval: 5000,
+    // refetchIntervalInBackground: true,
   });
 
   if (isLoading) return <h1>Loading...</h1>;
