@@ -12,6 +12,13 @@ function fetchJoke() {
   return axios.get(jokesURL).then((res) => res.data);
 }
 
+const select = (data) =>
+  data.map((joke) => ({
+    id: joke.id,
+    setup: joke.setup,
+    punchline: joke.punchline,
+  }));
+
 const RQJokeCard = () => {
   const { isError, error, isSuccess, isLoading, data, isFetching, refetch } =
     useQuery({
@@ -21,11 +28,13 @@ const RQJokeCard = () => {
       refetchOnMount: false,
       enabled: false,
       gcTime: 0,
+      select,
     });
 
   useEffect(() => {
     if (isSuccess) toast.success("Data fetched successfuly");
     if (isError) toast.error("Data not fetched");
+    console.log(data);
   }, [data, isSuccess, isError]);
 
   if (isLoading) return <h1>Loading...</h1>;
@@ -41,7 +50,6 @@ const RQJokeCard = () => {
         data.map((joke) => {
           return (
             <div className="joke-card" key={joke.id}>
-              <small>{joke.type}</small>
               <p>{joke.setup}</p>
               <p className="punchline">{joke.punchline}</p>
             </div>
