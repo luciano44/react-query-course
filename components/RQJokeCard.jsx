@@ -20,7 +20,7 @@ const RQJokeCard = () => {
       refetchOnWindowFocus: false,
       refetchOnMount: false,
       enabled: false,
-      gcTime: 250,
+      gcTime: 0,
     });
 
   useEffect(() => {
@@ -33,7 +33,7 @@ const RQJokeCard = () => {
 
   return (
     <>
-      <button onClick={refetch}>
+      <button onClick={refetch} disabled={isFetching}>
         <MdOutlineRefresh />
       </button>
       {isFetching && <h1>Fetching, please wait...</h1>}
