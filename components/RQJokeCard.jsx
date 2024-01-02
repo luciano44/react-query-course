@@ -1,16 +1,9 @@
 "use client";
-import axios from "axios";
 import "./_css/JokeCard.scss";
-import { useQuery } from "@tanstack/react-query";
+import useJokesData from "@/hooks/useJokesData";
 import { MdOutlineRefresh } from "react-icons/md";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
-
-const jokesURL = "https://official-joke-api.appspot.com/random_ten";
-
-function fetchJoke() {
-  return axios.get(jokesURL).then((res) => res.data);
-}
 
 const select = (data) =>
   data.map((joke) => ({
@@ -21,15 +14,7 @@ const select = (data) =>
 
 const RQJokeCard = () => {
   const { isError, error, isSuccess, isLoading, data, isFetching, refetch } =
-    useQuery({
-      queryKey: ["joke"],
-      queryFn: () => fetchJoke(),
-      refetchOnWindowFocus: false,
-      refetchOnMount: false,
-      enabled: false,
-      gcTime: 0,
-      select,
-    });
+    useJokesData(select);
 
   useEffect(() => {
     if (isSuccess) toast.success("Data fetched successfuly");
