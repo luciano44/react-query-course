@@ -7,15 +7,14 @@ function fetchJoke() {
   return axios.get(jokesURL).then((res) => res.data);
 }
 
-const useJokesData = (select) => {
+const useJokesData = (select, enabled = true) => {
   return useQuery({
     queryKey: ["joke"],
     queryFn: () => fetchJoke(),
     refetchOnWindowFocus: false,
     refetchOnMount: false,
-    enabled: false,
-    gcTime: 0,
-    staleTime: 3000,
+    enabled,
+    gcTime: 3000,
     select,
   });
 };

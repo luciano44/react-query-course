@@ -1,7 +1,6 @@
 "use client";
 import "./_css/JokeCard.scss";
 import useJokesData from "@/hooks/useJokesData";
-import { MdOutlineRefresh } from "react-icons/md";
 import toast from "react-hot-toast";
 import { useEffect } from "react";
 
@@ -13,7 +12,7 @@ const select = (data) =>
   }));
 
 const RQJokeCard = () => {
-  const { isError, error, isSuccess, isLoading, data, isFetching, refetch } =
+  const { isError, error, isSuccess, isLoading, data, isFetching } =
     useJokesData(select);
 
   useEffect(() => {
@@ -27,9 +26,6 @@ const RQJokeCard = () => {
 
   return (
     <>
-      <button onClick={refetch} disabled={isFetching}>
-        <MdOutlineRefresh />
-      </button>
       {isFetching && <h1>Fetching, please wait...</h1>}
       {data ? (
         data.map((joke) => {
