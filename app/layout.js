@@ -16,7 +16,16 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <Providers>
           <NavBar />
-          {children}
+          <div
+            style={{
+              maxWidth: "400px",
+              margin: "25px auto",
+              display: "grid",
+              placeItems: "center",
+            }}
+          >
+            {children}
+          </div>
         </Providers>
       </body>
     </html>

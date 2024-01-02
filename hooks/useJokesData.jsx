@@ -3,14 +3,14 @@ import axios from "axios";
 
 const jokesURL = "https://official-joke-api.appspot.com/random_ten";
 
-function fetchJoke() {
-  return axios.get(jokesURL).then((res) => res.data);
+function fetchJoke(url = jokesURL) {
+  return axios.get(url).then((res) => res.data);
 }
 
-const useJokesData = (select, enabled = true) => {
+const useJokesData = (select, enabled = true, url, queryKey = "joke") => {
   return useQuery({
-    queryKey: ["joke"],
-    queryFn: () => fetchJoke(),
+    queryKey: [queryKey],
+    queryFn: () => fetchJoke(url),
     refetchOnWindowFocus: false,
     refetchOnMount: false,
     enabled,

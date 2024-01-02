@@ -6,6 +6,7 @@ const links = [
   { href: "/joke", link: "Joke" },
   { href: "/rq-jokes", link: "RQ-Jokes" },
   { href: "/jokes-refetch", link: "Jokes-Refetch" },
+  { href: "/user-list", link: "User List" },
 ];
 
 const NavBar = () => {
