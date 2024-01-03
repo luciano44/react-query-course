@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
           <NavBar />
           <div
             style={{
-              maxWidth: "400px",
+              maxWidth: "650px",
               margin: "25px auto",
               display: "grid",
               placeItems: "center",

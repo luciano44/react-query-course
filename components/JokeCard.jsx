@@ -12,7 +12,6 @@ const JokeCard = async () => {
   return (
     <div className="joke-card">
       <small>{joke.type}</small>
-      <br />
       <p>{joke.setup}</p>
       <p className="punchline">{joke.punchline}</p>
     </div>
