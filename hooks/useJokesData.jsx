@@ -7,9 +7,9 @@ function fetchJoke(url = jokesURL) {
   return axios.get(url).then((res) => res.data);
 }
 
-const useJokesData = (select, enabled = true, url, queryKey = "joke") => {
+const useJokesData = (select, enabled = true, url) => {
   return useQuery({
-    queryKey: [queryKey],
+    queryKey: ["jokes"],
     queryFn: () => fetchJoke(url),
     refetchOnWindowFocus: false,
     refetchOnMount: false,

@@ -5,9 +5,7 @@ import "@/hooks/useJokesData";
 import { MdOutlineRefresh } from "react-icons/md";
 
 const JokeCardRefetch = () => {
-  const { data, refetch, isFetching } = useJokesData(false, false);
-
-  console.log(data);
+  const { data, refetch, isFetching, isSuccess } = useJokesData(false, false);
 
   return (
     <>

@@ -1,17 +1,12 @@
 "use client";
-import useJokesData from "@/hooks/useJokesData";
 import Link from "next/link";
 import "./_css/page.scss";
+import useUsersData from "@/hooks/useUsersData";
 
 const usersAPI = "https://jsonplaceholder.typicode.com/users";
 
 const UserListPage = () => {
-  const { data: users, isLoading } = useJokesData(
-    false,
-    true,
-    usersAPI,
-    "users"
-  );
+  const { data: users, isLoading } = useUsersData();
 
   console.log(users);
 
