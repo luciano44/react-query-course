@@ -1,0 +1,32 @@
+.dependent-queries {
+  display: grid;
+  gap: 10px;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 3px;
+    min-height: 50px;
+  }
+
+  p {
+    margin-bottom: 50px;
+    color: rgb(255, 255, 255, 0.5);
+  }
+
+  .loading {
+    background-color: lightgreen;
+    border-radius: 3px;
+    color: #111;
+    font-weight: bold;
+    width: fit-content;
+    padding: 5px 10px;
+    font-size: 13px;
+  }
+
+  .id {
+    color: lightgreen;
+  }
+}
