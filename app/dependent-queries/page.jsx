@@ -47,9 +47,10 @@ const DependendQueriesPage = () => {
       </p>
 
       <ul>
-        {(todoObj?.isLoading || todoObj?.isFetching) && (
-          <h1 className="loading">ToDo Loading...</h1>
+        {(jokeIsLoading || jokeIsFetching) && (
+          <h1 className="loading">Joke Loading...</h1>
         )}
+
         {joke && (
           <>
             <li className="id">{joke.id}</li>
@@ -60,8 +61,8 @@ const DependendQueriesPage = () => {
       </ul>
 
       <ul>
-        {(jokeIsLoading || jokeIsFetching) && (
-          <h1 className="loading">Joke Loading...</h1>
+        {(todoObj?.isLoading || todoObj?.isFetching) && (
+          <h1 className="loading">ToDo Loading...</h1>
         )}
         {todoObj?.data && (
           <>
