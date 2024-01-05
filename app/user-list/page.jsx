@@ -8,8 +8,6 @@ const usersAPI = "https://jsonplaceholder.typicode.com/users";
 const UserListPage = () => {
   const { data: users, isLoading } = useUsersData();
 
-  console.log(users);
-
   if (isLoading) return <h1>Loading All Users...</h1>;
 
   return (
