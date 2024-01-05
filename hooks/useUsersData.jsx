@@ -17,11 +17,9 @@ const useUsersData = (userId = "") => {
     queryKey: queryKeyArray,
     queryFn: fetchUsers,
     initialData: () => {
-      const user = queryClient
+      return queryClient
         .getQueryData(["users"])
         ?.find((user) => user.id == parseInt(userId));
-
-      return user ? user : undefined;
     },
   });
 };
