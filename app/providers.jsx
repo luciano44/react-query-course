@@ -11,7 +11,7 @@ const Providers = ({ children }) => {
       {children}
       <ReactQueryDevtools
         initialIsOpen={false}
-        position="right"
+        position="bottom"
         buttonPosition="bottom-right"
       />
       <Toaster position="bottom" />

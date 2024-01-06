@@ -1,14 +1,15 @@
 nav {
-  background-color: rgb(236, 157, 9);
+  background-color: rgb(134, 8, 124);
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 10px;
   color: white;
-  gap: 5px;
+  gap: 2px;
+  font-size: 13px;
 
   & > a {
-    padding: 5px 10px;
+    padding: 5px;
     border-radius: 5px;
   }
 
