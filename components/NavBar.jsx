@@ -7,8 +7,10 @@ const links = [
   { href: "/rq-jokes", link: "RQ-Jokes" },
   { href: "/jokes-refetch", link: "Jokes-Refetch" },
   { href: "/user-list", link: "User List" },
-  { href: "/parallel-queries", link: "Parallel Queries" },
-  { href: "/dependent-queries", link: "Dependent Queries" },
+  { href: "/parallel-queries", link: "RQ-Parallel" },
+  { href: "/dependent-queries", link: "RQ-Dependent" },
+  { href: "/paginated-queries", link: "RQ-Paginated" },
+  { href: "/infinite-queries", link: "RQ-Infinite" },
 ];
 
 const NavBar = () => {
