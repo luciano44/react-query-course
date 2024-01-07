@@ -17,20 +17,46 @@ const MutationPage = () => {
     mutationFn,
     onSuccess: (data) => {
       // Use mutation response to append to the list
-      queryClient.setQueryData(["colors-mutation"], (oldQueryData) => {
-        return {
-          ...oldQueryData,
-          data: [...oldQueryData.data, data.data],
-        };
-      });
+      // queryClient.setQueryData(["colors-mutation"], (oldQueryData) => {
+      //   return {
+      //     ...oldQueryData,
+      //     data: [...oldQueryData.data, data.data],
+      //   };
+      // });
 
       // Invalidates Query
       // queryClient.invalidateQueries(["colors-mutation"]);
 
       toast.success("Color successfully added");
     },
-    onError: () => {
+    onMutate: async (color) => {
+      await queryClient.cancelQueries(["colors-mutation"]);
+      const previousQueryData = queryClient.getQueryData(["colors-mutation"]);
+      queryClient.setQueriesData(["colors-mutation"], () => {
+        return {
+          ...previousQueryData,
+          data: [
+            ...previousQueryData.data,
+            {
+              id: previousQueryData?.data.length + 1 || 1,
+              color,
+            },
+          ],
+        };
+      });
+      return {
+        previousQueryData,
+      };
+    },
+    onError: (_error, _color, context) => {
+      queryClient.setQueryData(
+        ["colors-mutation"],
+        () => context.previousQueryData
+      );
       toast.error("Something went wrong");
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries(["colors-mutation"]);
     },
   });
 
