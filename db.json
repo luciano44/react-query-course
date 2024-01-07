@@ -225,8 +225,28 @@
       "color": "black"
     },
     {
-      "color": "cyan",
+      "color": "yellow",
       "id": 31
+    },
+    {
+      "color": "red",
+      "id": 32
+    },
+    {
+      "color": "blue",
+      "id": 33
+    },
+    {
+      "color": "brown",
+      "id": 34
+    },
+    {
+      "color": "cyan",
+      "id": 35
+    },
+    {
+      "color": "toamto",
+      "id": 36
     }
   ]
 }

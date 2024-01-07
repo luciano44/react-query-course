@@ -1,4 +1,5 @@
 "use client";
+import { request } from "@/utils/axios-utils";
 import { useQueryClient, useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useState } from "react";
@@ -12,6 +13,21 @@ const MutationPage = () => {
   });
 
   const queryClient = useQueryClient();
+
+  function mutationFn(color) {
+    if (!color) throw new Error("no color");
+
+    // axios.post("http://localhost:3001/colors", {
+    //   color,
+    // });
+    const res = request({ url: "/colors", method: "post", data: { color } });
+    setColor("");
+    return res;
+  }
+
+  function queryFn() {
+    return request({ url: "/colors" });
+  }
 
   const { mutate, isPending } = useMutation({
     mutationFn,
@@ -56,23 +72,9 @@ const MutationPage = () => {
       toast.error("Something went wrong");
     },
     onSettled: () => {
-      queryClient.invalidateQueries(["colors-mutation"]);
+      // queryClient.invalidateQueries(["colors-mutation"]);
     },
   });
-
-  function mutationFn(color) {
-    if (!color) throw new Error("no color");
-
-    const res = axios.post("http://localhost:3001/colors", {
-      color,
-    });
-    setColor("");
-    return res;
-  }
-
-  function queryFn() {
-    return axios.get("http://localhost:3001/colors");
-  }
 
   return (
     <div>
@@ -87,10 +89,15 @@ const MutationPage = () => {
         onKeyDown={(e) => {
           if (e.key === "Enter") mutate(color);
         }}
+        disabled={isPending}
       />
       {isLoading && <p>Loading Colors...</p>}
       {isError && <p>{error.message}</p>}
-      <button className="bg-slate-500 px-2" onClick={() => mutate(color)}>
+      <button
+        className="bg-slate-500 px-2"
+        onClick={() => mutate(color)}
+        disabled={isPending}
+      >
         add
       </button>
       {isPending && <p>Pending...</p>}
