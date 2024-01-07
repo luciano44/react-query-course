@@ -225,40 +225,28 @@
       "color": "black"
     },
     {
-      "color": "asd",
+      "color": "navy",
       "id": 31
     },
     {
-      "color": "marrom",
+      "color": "whjite",
       "id": 32
     },
     {
-      "color": "bege",
+      "color": "white",
       "id": 33
     },
     {
-      "color": "preto",
+      "color": "blacko",
       "id": 34
     },
     {
-      "color": "asasd",
+      "color": "silver",
       "id": 35
     },
     {
-      "color": "pdasdas",
+      "color": "gray",
       "id": 36
-    },
-    {
-      "color": "oasd",
-      "id": 37
-    },
-    {
-      "color": "sdaodasoadsod",
-      "id": 38
-    },
-    {
-      "color": "osdaasdo",
-      "id": 39
     }
   ]
 }

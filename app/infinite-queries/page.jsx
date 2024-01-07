@@ -23,7 +23,7 @@ const InfiniteQueriesPage = () => {
     queryKey: ["colors"],
     queryFn: fetchColors,
     getNextPageParam: (_lastPage, pages) => {
-      return pages.length < 10 ? pages.length + 1 : undefined;
+      return pages?.length < 10 ? pages?.length + 1 : undefined;
     },
   });
 

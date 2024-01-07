@@ -13,9 +13,21 @@ const ParallelQueries = () => {
   const jokeList = jokes?.map((j) => <li>{j.setup}</li>);
 
   return (
-    <div>
-      <ul>{isUsersLoading ? <h1>Users Loading...</h1> : userList}</ul>
-      <ul>{isJokesLoading ? <h1>Jokes Loading...</h1> : jokeList}</ul>
+    <div className="parallel-queries">
+      <ul>
+        {isUsersLoading ? (
+          <h1 className="bg-green-500">Users Loading...</h1>
+        ) : (
+          userList
+        )}
+      </ul>
+      <ul>
+        {isJokesLoading ? (
+          <h1 className="bg-green-500">Jokes Loading...</h1>
+        ) : (
+          jokeList
+        )}
+      </ul>
     </div>
   );
 };

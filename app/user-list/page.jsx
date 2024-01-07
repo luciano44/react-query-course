@@ -11,7 +11,7 @@ const UserListPage = () => {
   if (isLoading) return <h1>Loading All Users...</h1>;
 
   return (
-    <ul>
+    <ul className="user-list">
       {users &&
         users.map((user) => {
           return (

@@ -36,7 +36,7 @@ const PaginatedQueriesPage = () => {
 
   return (
     <>
-      <ul>
+      <ul className="paginated-queries">
         <p>Page {pageNumber}</p>
         <div className="buttons">
           <button
