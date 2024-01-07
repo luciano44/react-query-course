@@ -11,6 +11,7 @@ const links = [
   { href: "/dependent-queries", link: "RQ-Dependent" },
   { href: "/paginated-queries", link: "RQ-Paginated" },
   { href: "/infinite-queries", link: "RQ-Infinite" },
+  { href: "/mutation", link: "Mutation" },
 ];
 
 const NavBar = () => {
