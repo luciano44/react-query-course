@@ -1,23 +1,35 @@
 "use client";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useQueryClient, useMutation, useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const MutationPage = () => {
   const [color, setColor] = useState("");
-  const { data, isLoading, refetch, error, isError } = useQuery({
+  const { data, isLoading, error, isError } = useQuery({
     queryKey: ["colors-mutation"],
     queryFn,
   });
-  const { mutate, isPending, status } = useMutation({ mutationFn });
+
+  const queryClient = useQueryClient();
+
+  const { mutate, isPending } = useMutation({
+    mutationFn,
+    onSuccess: () => {
+      queryClient.invalidateQueries(["colors-mutation"]);
+      toast.success("Color successfully added");
+    },
+    onError: () => {
+      toast.error("Something went wrong");
+    },
+  });
 
   function mutationFn(color) {
-    if (!color) return alert("please insert color name");
+    if (!color) throw new Error("no color");
 
     const res = axios.post("http://localhost:3001/colors", {
       color,
     });
-    refetch();
     setColor("");
     return res;
   }
@@ -45,11 +57,14 @@ const MutationPage = () => {
       <button className="bg-slate-500 px-2" onClick={() => mutate(color)}>
         add
       </button>
+      {isPending && <p>Pending...</p>}
+
       <ul className="p-1">
         {data?.data &&
           data.data
             .map((c) => (
               <li
+                key={c.id}
                 style={{ color: c.color }}
                 className="mb-1 bg-slate-800 rounded-md p-1 "
               >
