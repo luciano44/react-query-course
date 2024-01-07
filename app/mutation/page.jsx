@@ -15,8 +15,18 @@ const MutationPage = () => {
 
   const { mutate, isPending } = useMutation({
     mutationFn,
-    onSuccess: () => {
-      queryClient.invalidateQueries(["colors-mutation"]);
+    onSuccess: (data) => {
+      // Use mutation response to append to the list
+      queryClient.setQueryData(["colors-mutation"], (oldQueryData) => {
+        return {
+          ...oldQueryData,
+          data: [...oldQueryData.data, data.data],
+        };
+      });
+
+      // Invalidates Query
+      // queryClient.invalidateQueries(["colors-mutation"]);
+
       toast.success("Color successfully added");
     },
     onError: () => {
